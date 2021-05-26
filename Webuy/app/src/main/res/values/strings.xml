@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Webuy</string>
+    <string name="no_results_found">Oops! Our Market is Empty.</string>
+    <string name="sold_out">SOLD OUT</string>
+
+    <string name="menu_home">Home</string>
+    <string name="price">¥ %1$s</string>
+</resources>
