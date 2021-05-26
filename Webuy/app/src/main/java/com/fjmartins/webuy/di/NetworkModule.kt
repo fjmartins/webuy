@@ -1,6 +1,5 @@
 package com.fjmartins.webuy.di
 
-import android.util.Base64
 import com.fjmartins.webuy.network.WebuyApi
 import dagger.Module
 import dagger.Provides
@@ -20,6 +19,8 @@ object NetworkModule {
     @Provides
     fun provideHttpClient() : OkHttpClient {
         return OkHttpClient.Builder().apply {
+            // TODO: This is where I would add the key for the API
+
 //                addInterceptor {chain ->
 //                    val newRequest = chain.request().newBuilder()
 //                        .addHeader("Authorization", "token " + WebuyApi.KEY).build()

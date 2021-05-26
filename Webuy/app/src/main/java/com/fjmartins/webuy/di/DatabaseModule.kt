@@ -14,7 +14,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    //tell hilt how to use room
     @Singleton
     @Provides
     fun provideDatabase(

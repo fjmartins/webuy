@@ -1,4 +1,4 @@
-package com.fjmartins.webuy.ui.main
+package com.fjmartins.webuy.ui.home
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.LiveData
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val webuyRepository: WebuyRepository): ViewModel() {
+class HomeViewModel @Inject constructor(private val webuyRepository: WebuyRepository): ViewModel() {
 
     private val _listings = MutableLiveData<List<Listing>>().apply {
         value = ArrayList()

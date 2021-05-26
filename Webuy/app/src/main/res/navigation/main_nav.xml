@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.fjmartins.webuy.ui.main.MainFragment"
+        android:name="com.fjmartins.webuy.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/home_fragment" />
 
 </navigation>

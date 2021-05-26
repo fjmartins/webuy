@@ -1,4 +1,4 @@
-package com.fjmartins.webuy.ui.main
+package com.fjmartins.webuy.ui.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +12,11 @@ import com.fjmartins.webuy.R
 import com.fjmartins.webuy.model.Listing
 import java.text.DecimalFormat
 
-class MainFragmentAdapter(
+class HomeFragmentAdapter(
     private val listener: OnClickListener,
     private val listings: List<Listing>
 ) :
-    RecyclerView.Adapter<MainFragmentAdapter.ViewHolder>() {
+    RecyclerView.Adapter<HomeFragmentAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using

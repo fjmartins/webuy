@@ -1,4 +1,4 @@
-package com.fjmartins.webuy.ui.main
+package com.fjmartins.webuy.ui.home
 
 import com.fjmartins.webuy.model.Listing
 

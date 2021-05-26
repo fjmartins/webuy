@@ -1,4 +1,4 @@
-package com.fjmartins.webuy.ui.main
+package com.fjmartins.webuy.ui.home
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -10,25 +10,21 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.fjmartins.webuy.databinding.MainFragmentBinding
+import com.fjmartins.webuy.databinding.HomeFragmentBinding
 import com.fjmartins.webuy.model.Listing
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
-    private lateinit var binding: MainFragmentBinding
-    private lateinit var viewModel: MainViewModel
+    private lateinit var binding: HomeFragmentBinding
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         activity?.run {
-            viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+            viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         }
-        binding = MainFragmentBinding.inflate(inflater, container, false)
+        binding = HomeFragmentBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
         return binding.root
@@ -44,7 +40,7 @@ class MainFragment : Fragment() {
             val mLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, columnCount)
             binding.mainRecyclerView.apply {
                 layoutManager = mLayoutManager
-                adapter = MainFragmentAdapter(object : OnClickListener {
+                adapter = HomeFragmentAdapter(object : OnClickListener {
                     override fun onClick(index: Int, listing: Listing) {
                         Toast.makeText(requireContext(), listing.item_name, Toast.LENGTH_SHORT).show()
                     }
