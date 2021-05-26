@@ -20,12 +20,12 @@ object NetworkModule {
     @Provides
     fun provideHttpClient() : OkHttpClient {
         return OkHttpClient.Builder().apply {
-                addInterceptor {chain ->
-                    val newRequest = chain.request().newBuilder()
-                        .addHeader("Authorization", "token " + WebuyApi.KEY).build()
-
-                    chain.proceed(newRequest)
-                }
+//                addInterceptor {chain ->
+//                    val newRequest = chain.request().newBuilder()
+//                        .addHeader("Authorization", "token " + WebuyApi.KEY).build()
+//
+//                    chain.proceed(newRequest)
+//                }
             }
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
