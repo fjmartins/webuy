@@ -14,7 +14,7 @@ interface MarketDao {
     @Query("SELECT * FROM listings")
     suspend fun readListings(): List<Listing>
 
-    @Query("SELECT * FROM listings WHERE item_name = :name") // Enclose like with % %
+    @Query("SELECT * FROM listings WHERE item_name = :name")
     suspend fun readListing(name: String): List<Listing>
 
     @Query("SELECT * FROM listings WHERE item_name LIKE :like") // Enclose like with % %
