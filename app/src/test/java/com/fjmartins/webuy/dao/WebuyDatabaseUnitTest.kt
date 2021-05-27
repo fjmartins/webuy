@@ -30,7 +30,7 @@ class WebuyDatabaseUnitTest : BaseUnitTest() {
     @Test
     fun insertTest() = runBlocking {
         val testListing = Listing(
-            0,
+            1,
             "https://img.fril.jp/img/387745513/m/1094046576.jpg?1608014938",
             "ロエベ001MAN オードゥパルファム100ml",
             7500,
@@ -100,6 +100,28 @@ class WebuyDatabaseUnitTest : BaseUnitTest() {
         database.marketDao().createListing(testListing)
         val result = database.marketDao().readListing(testListing.item_name).first()
         assertEquals(result.item_name, testListing.item_name)
+    }
+
+    @Test
+    fun readLikeTest() = runBlocking {
+        val testListing = Listing(
+            0,
+            "https://img.fril.jp/img/387745513/m/1094046576.jpg?1608014938",
+            "ロエベ001MAN オードゥパルファム100ml",
+            7500,
+            1,
+            0,
+            null,
+            "ピロシキ",
+            true,
+            4,
+            0
+        )
+
+        database.marketDao().createListing(testListing)
+
+        val result = database.marketDao().readListings("%ロエベ%")
+        assertEquals(true, result.isNotEmpty())
     }
 
     @Test
