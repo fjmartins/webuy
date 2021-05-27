@@ -25,14 +25,7 @@ class WebuyApiUnitTest : BaseUnitTest() {
         webuyApi = Retrofit.Builder()
             .baseUrl(WebuyApi.URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(OkHttpClient.Builder().apply {
-                addInterceptor { chain ->
-                    val newRequest = chain.request().newBuilder()
-                        .addHeader("Authorization", "token " + WebuyApi.KEY).build()
-
-                    chain.proceed(newRequest)
-                }
-            }.readTimeout(15, TimeUnit.SECONDS).connectTimeout(15, TimeUnit.SECONDS).build())
+            .client(OkHttpClient.Builder().readTimeout(15, TimeUnit.SECONDS).connectTimeout(15, TimeUnit.SECONDS).build())
             .build()
             .create(WebuyApi::class.java)
     }
