@@ -24,10 +24,10 @@ class HomeFragmentAdapter(
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image: ImageView = view.findViewById(R.id.image)
-        val brand_name: TextView = view.findViewById(R.id.brand_name)
+        val brandName: TextView = view.findViewById(R.id.brand_name)
         val liked: ImageView = view.findViewById(R.id.liked)
         val price: TextView = view.findViewById(R.id.price)
-        val sold_out: View = view.findViewById(R.id.sold_out_view)
+        val soldOutView: View = view.findViewById(R.id.sold_out_view)
     }
 
     // Create new views (invoked by the layout manager)
@@ -51,12 +51,12 @@ class HomeFragmentAdapter(
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(viewHolder.image)
 
-        viewHolder.brand_name.text = listing.brand_name
+        viewHolder.brandName.text = listing.brand_name
         viewHolder.price.text = viewHolder.itemView.context.getString(R.string.price).format(
             DecimalFormat("#,###,###").format(listing.price)
         )
 
-        viewHolder.sold_out.visibility = if (listing.t_status == 0) {
+        viewHolder.soldOutView.visibility = if (listing.t_status == 0) {
             View.VISIBLE
         } else {
             View.GONE
