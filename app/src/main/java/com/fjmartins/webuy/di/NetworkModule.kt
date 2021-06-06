@@ -24,7 +24,6 @@ object NetworkModule {
 //                addInterceptor {chain ->
 //                    val newRequest = chain.request().newBuilder()
 //                        .addHeader("Authorization", "token " + WebuyApi.KEY).build()
-//
 //                    chain.proceed(newRequest)
 //                }
             }

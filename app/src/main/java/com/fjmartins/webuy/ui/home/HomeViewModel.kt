@@ -9,6 +9,7 @@ import com.fjmartins.webuy.model.Listing
 import com.fjmartins.webuy.repository.WebuyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.text.FieldPosition
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,6 +19,8 @@ class HomeViewModel @Inject constructor(private val webuyRepository: WebuyReposi
         value = ArrayList()
     }
     val listings: LiveData<List<Listing>> = _listings
+    val selected = MutableLiveData<Listing>()
+
     val loading = ObservableBoolean(false)
     val empty = ObservableBoolean(false)
 
@@ -31,5 +34,9 @@ class HomeViewModel @Inject constructor(private val webuyRepository: WebuyReposi
 
             loading.set(false)
         }
+    }
+
+    fun select(position: Int) {
+        selected.postValue(listings.value?.get(position))
     }
 }

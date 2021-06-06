@@ -1,12 +1,11 @@
 package com.fjmartins.webuy.network
 
+import com.fjmartins.webuy.BuildConfig
 import retrofit2.http.GET
 
 interface WebuyApi {
-    // TODO: If the app had a proper API this is where I would set the URL and key
-
     companion object {
-        const val KEY = "key"
+        const val KEY = BuildConfig.WEBUY_API_KEY
         const val URL = "https://raw.githubusercontent.com/fjmartins/webuy/master/data/"
     }
 
