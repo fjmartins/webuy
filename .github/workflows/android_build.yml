@@ -13,6 +13,14 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: Decode WEBUY_API_KEY
+        env:
+          WEBUY_API_KEY: ${{ secrets.WEBUY_API_KEY }}
+        run: echo WEBUY_API_KEY="WEBUY_API_KEY" > ./local.properties
+
+      - name: Check Folder Structure
+        run: ls -al
+
       - name: Run Tests
         run: ./gradlew test
 
